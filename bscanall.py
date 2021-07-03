@@ -75,3 +75,30 @@ class currency_container:
 		self.ten_min_start_bid_price = float(currencyArray['b'])
 		self.fifteen_min_time_stamp = initial_timestamp
 		self.fifteen_min_start_bid_price = float(currencyArray['b'])
+
+def difference_to_color(difference):
+    	if(difference <= 0.1):
+		print(Fore.YELLOW)
+	elif(difference > 0.1 and difference < 0.8):
+		print(Fore.WHITE)
+	elif(difference >= 0.8 and difference <= 1.4):
+		print(Fore.MAGENTA)
+	elif(difference > 1.4 and difference <= 2.5):
+		print(Fore.BLUE)
+	elif(difference > 2.5 and difference <= 4.0):
+		print(Fore.GREEN)
+	elif(difference > 4.0 and difference <= 5.0):
+		print(Fore.CYAN)
+	elif(difference > 5.0):
+		print(Fore.RED)
+	else:
+		print(Fore.WHITE)
+
+
+#TIMER TO DISPLAY COLOR RANGE EVERY 
+while True:
+	delta_minutes = (dt.datetime.now() - T).seconds
+	if delta_minutes >= DELAY_FOR_COLOR_RANGE:
+		print(Style.BRIGHT)
+		print(COLOUR_CODED_VALUES)
+	sleep(DELAY_FOR_COLOR_RANGE) 
